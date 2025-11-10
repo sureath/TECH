@@ -1,3 +1,16 @@
+from pathlib import Path
+import streamlit as st
+
+BASE = Path(__file__).parent
+
+
+def img(name: str) -> str:
+    return str(BASE / "images" / name)
+
+def vid(name: str) -> str:
+    return str(BASE / "videos" / name)
+
+
 import streamlit as st
 import os
 
@@ -83,18 +96,17 @@ st.markdown("""
 col1, col2 = st.columns(2)
 
 with col1:
-    st.image("images/الرئيسية.png", caption="الرئيسية")
-    st.image("images/من تكون.png", caption="من تكون؟ اختر من تمثلك")
-
+    st.image(img("home.png"), caption="الرئيسية")
+    st.image(img("who.png"), caption="من تكون؟")
 with col2:
-    st.image("images/معلم.png", caption="لو كنت معلمًا")
+    st.image(img("teacher.png"), caption="معلم")
     st.markdown("""
     💡 *لو كنت معلمًا* وتبغى تطبّق مفهوم Prompt Engineering  
     فهنا نماذج أسئلة تساعدك تبني محادثات تعليمية فعّالة مع طلابك،  
     وتدمج الذكاء الاصطناعي بأسلوب تربوي ذكي ومفيد 👩🏻‍🏫
     """)
 
-    st.image("images/الرقابة.png", caption="الرقابة الأبوية")
+    st.image(img("parental.png"), caption="الرقابةالأبوية")
     st.markdown("""
     🧠 *وإذا كنت أبًا*، فـ ChatGPT قريبًا بيقدّم ميزة  
     Parental Controls (الرقابة الأبوية)  
