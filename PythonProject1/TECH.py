@@ -242,6 +242,22 @@ if "page" in st.session_state and st.session_state.page == "main":
 
         st.video(vid("CODE.mp4"))
 
+        st.subheader("🎓 طالب المدرسة – المهارات الرقمية")
+
+        st.markdown("""
+                🎬 *السيناريو قبل التقنية:*  
+                طالب أو طالبة ما يعرف من وين يبدأ في المهارات الرقمية،  
+                محتار بين كثرة المصادر وما يدري وش الطريق الصح! 😕
+                """)
+
+        st.video(vid("STUDENT.mp4"))
+
+        st.markdown("""
+                💡 *الفكرة:*  
+                هذا الفيديو يوضح أول خطوة لبناء أساس قوي في المهارات الرقمية،  
+                وكيف تبدأ طريقك بثقة ووعي بعيد عن التشتت.  
+                """)
+
         st.markdown("""
         🔗 *المصادر الموثوقة:*  
         - [OpenAI Codex](https://openai.com/codex/)  
