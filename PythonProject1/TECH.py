@@ -286,7 +286,7 @@ if "page" in st.session_state and st.session_state.page == "main":
             شوف كيف تقدر تسوي تصميم احترافي خلال دقائق فقط! 🎨✨
             """)
 
-            st.video("videos/DESIGN.mp4")
+            st.videos("videos/DESIGN.mp4")
 
             st.markdown("""
             🔗 *المصادر الموثوقة:*  
@@ -331,7 +331,7 @@ if "page" in st.session_state and st.session_state.page == "main":
             فقط اكتب وجهتك والتواريخ وشاهد النتائج فوراً.
             """)
 
-            st.video("videos/TRAVEL.mp4")
+            st.videos("videos/TRAVEL.mp4")
 
             st.markdown("""
             🔗 *المصادر الموثوقة:*  
@@ -378,7 +378,7 @@ if "page" in st.session_state and st.session_state.page == "main":
             وتشوف تطوّرك 👩🏻‍💻✨
             """)
 
-            st.video("videos/CODE.mp4")
+            st.videos("videos/CODE.mp4")
 
             st.markdown("""
             🔗 *المصادر الموثوقة:*  
