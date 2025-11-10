@@ -165,11 +165,13 @@ if "page" in st.session_state and st.session_state.page == "main":
 
         st.markdown("""
         <div style="background-color:#fff3cd;padding:25px;border-radius:15px;
-        border:2px solid #ffc107;font-size:18px;line-height:1.8;text-align:justify;">
+        border:2px solid #ffc107;font-size:18px;line-height:1.8;text-align:justify;
+        color:#000000;font-weight:600;">
         ⚠️ <b>التقنية تساعدك على الإبداع، لكنها لا تصنع بصمتك.</b><br>
         التصميم الواعي هو انعكاس لهويتك وقيمك. ✨
         </div>
         """, unsafe_allow_html=True)
+
 
     # =====================================
     # ✈️ الحجز الذكي
@@ -205,11 +207,13 @@ if "page" in st.session_state and st.session_state.page == "main":
 
         st.markdown("""
         <div style="background-color:#fde2e2;padding:25px;border-radius:15px;
-        border:2px solid #dc3545;font-size:18px;line-height:1.8;text-align:justify;">
+        border:2px solid #dc3545;font-size:18px;line-height:1.8;text-align:justify;
+        color:#000000;font-weight:600;">
         🚨 <b>التقنية تختصر وقتك، لكنها لا تعفيك من الوعي.</b><br>
         لا تدخل بياناتك الشخصية أو البنكية أثناء استخدام أدوات الذكاء الاصطناعي. 🔒
         </div>
         """, unsafe_allow_html=True)
+
 
     # =====================================
     # 💻 البرمجة والتعليم
@@ -247,7 +251,8 @@ if "page" in st.session_state and st.session_state.page == "main":
 
         st.markdown("""
         <div style="background-color:#dbeafe;padding:25px;border-radius:15px;
-        border:2px solid #0d6efd;font-size:18px;line-height:1.8;text-align:justify;">
+        border:2px solid #0d6efd;font-size:18px;line-height:1.8;text-align:justify;
+        color:#000000;font-weight:600;">
         💡 <b>التقنية تعلّمك، لكنها لا تفكّر عنك.</b><br>
         الكود الواعي هو اللي تكتبه بفهمك، مو اللي تنسخه بلا وعي. 👨🏻‍💻
         </div>
