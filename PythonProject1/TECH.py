@@ -1,22 +1,30 @@
 from pathlib import Path
 import streamlit as st
 
+# =========================
+# إعداد المسارات
+# =========================
 BASE = Path(__file__).parent
-
 
 def img(name: str) -> str:
     return str(BASE / "images" / name)
 
-import streamlit as st
-import os
+def vid(name: str) -> str:
+    return str(BASE / "videos" / name)
+
 
 # =========================
-# إعداد الصفحة
+# إعداد الصفحة العامة
 # =========================
-st.set_page_config(page_title="تحوّل ذكي... بخطوة وعي 💡", layout="wide")
+st.set_page_config(
+    page_title="تحوّل ذكي... بخطوة وعي 💡",
+    layout="wide",
+    page_icon="💡"
+)
 
 if "scores" not in st.session_state:
     st.session_state.scores = {"before": [], "after": []}
+
 
 # =========================
 # الصفحة الافتتاحية
@@ -27,9 +35,7 @@ st.markdown("""
 أجرينا *استبيانًا* لمعرفة مدى اعتماد الناس على الذكاء الاصطناعي في مهامهم اليومية،  
 واكتشفنا أن الغالبية يستخدمون أداة:
 
-*ChatGPT*
-
-بشكل شبه يومي. 🤖  
+*ChatGPT* 🤖  
 
 ومن هنا انطلقت مبادرتنا:  
 ### "تحوّل ذكي... بخطوة وعي"  
@@ -39,9 +45,6 @@ st.markdown("""
 
 st.markdown("---")
 
-# =========================
-# الوعي والمخاطر
-# =========================
 st.markdown("""
 كثير من الناس يتفاجؤون بأن معلومات تخصّهم ظهرت على الإنترنت،  
 أو حتى في نماذج ذكاء اصطناعي *لكن بهوية مختلفة!* 😯  
@@ -52,9 +55,6 @@ st.markdown("""
 وهنا تأتي أهمية الوعي بكيفية استخدام التقنية بذكاء ومسؤولية. 🌱
 """)
 
-# =========================
-# الحفاظ على الخصوصية
-# =========================
 st.info("""
 🔒 *ابدأ بالخطوة الأهم: الحفاظ على خصوصيتك.*
 
@@ -62,14 +62,11 @@ st.info("""
 
 1. افتح  
    *Settings ⚙*
-
 2. اختر  
    *Data Controls*
-
 3. فعّل الخيار  
    *Turn off training on your data*
-
-4. وتأكد من حذف المحادثات القديمة إذا احتوت على بيانات خاصة.
+4. واحذف المحادثات القديمة إن احتوت على بيانات خاصة.
 
 💭 التقنية تساعدك، لكنها لا تحميك إن لم تكن واعيًا.  
 *الوعي مسؤوليتك. ✨*
@@ -80,43 +77,31 @@ st.markdown("---")
 # =========================
 # من تكون؟
 # =========================
-st.set_page_config(page_title="تحوّل ذكي بخطوة وعي", layout="wide", page_icon="💡")
-
-# العنوان الرئيسي
 st.title("من تكون؟ 🤔")
-st.markdown("""
-اختر من يمثلك وتعرّف على دورك في عالم التقنية 👇  
-""")
+st.markdown("اختر من يمثلك وتعرّف على دورك في عالم التقنية 👇")
 
-# عرض الصور بالتوزيع الجانبي الجميل
 col1, col2 = st.columns(2)
 
 with col1:
     st.image(img("home.png"), caption="الرئيسية")
     st.image(img("who.png"), caption="من تكون؟")
+
 with col2:
     st.image(img("teacher.png"), caption="معلم")
     st.markdown("""
     💡 *لو كنت معلمًا* وتبغى تطبّق مفهوم Prompt Engineering  
-    فهنا نماذج أسئلة تساعدك تبني محادثات تعليمية فعّالة مع طلابك،  
-    وتدمج الذكاء الاصطناعي بأسلوب تربوي ذكي ومفيد 👩🏻‍🏫
+    فهنا نماذج أسئلة تساعدك تبني محادثات تعليمية فعّالة مع طلابك. 👩🏻‍🏫
     """)
-
-    st.image(img("parental.png"), caption="الرقابةالأبوية")
+    st.image(img("parental.png"), caption="الرقابة الأبوية")
     st.markdown("""
     🧠 *وإذا كنت أبًا*، فـ ChatGPT قريبًا بيقدّم ميزة  
-    Parental Controls (الرقابة الأبوية)  
-    لحماية أبنائك وضمان تجربتهم التعليمية تكون آمنة ومناسبة لأعمارهم 🤍
+    Parental Controls لحماية أبنائك وضمان تجربة تعليمية آمنة 🤍
     """)
 
-# خط فاصل أنيق
+st.markdown("---")
+st.markdown("🌟 *التقنية تصنع الفرق، لكن وعيك هو اللي يصنع الأمان.*")
 st.markdown("---")
 
-# رسالة ختامية
-st.markdown("""
-🌟 *التقنية تصنع الفرق، لكن وعيك هو اللي يصنع الأمان.*  
-""")
-st.markdown("---")
 st.markdown("""
 🌐 [زر موقع OpenAI الرسمي للتعرّف أكثر على التحكم بالبيانات](https://openai.com)
 
@@ -128,6 +113,7 @@ st.markdown("""
 # =========================
 if st.button("ابدأ تجربتك الآن 🚀"):
     st.session_state.page = "main"
+
 
 # =========================
 # التجربة التفاعلية
@@ -143,84 +129,99 @@ if "page" in st.session_state and st.session_state.page == "main":
     """)
 
     task = st.selectbox("اختر المجال الذي ترغب بتجربته:",
-                        ["🎨 التصميم", "✈ الحجز الذكي", "💻 البرمجة والتعليم"])
+                        ["🎨 التصميم", "✈️ الحجز الذكي", "💻 البرمجة والتعليم"])
 
+    # =====================================
     # 🎨 التصميم
+    # =====================================
     if task == "🎨 التصميم":
         st.subheader("🎨 التصميم الذكي")
-
         st.markdown("""
         🎬 *السيناريو قبل التقنية:*  
         كم مرة كانت عندك فكرة تصميم، لكن ضيّعت وقتك في تنسيق الألوان أو ترتيب العناصر؟ 😩  
         """)
+
         before_time = st.slider("⏱ كم أخذ منك وقت التصميم؟", 1, 5, 3)
         before_diff = st.slider("😓 ما مدى الصعوبة؟", 1, 5, 3)
         st.session_state.scores["before"] = [before_time, before_diff]
 
         st.markdown("---")
         st.markdown("### 🤖 الطريقة الذكية:")
+
         st.markdown("""
-        استخدم أدوات مثل *Canva Magic Design* أو *Figma AI* داخل  
-        *ChatGPT*  
-        لتشوف كيف تقدر تسوي تصميم احترافي خلال دقائق فقط!
+        استخدم أدوات مثل  
+        *Canva Magic Design* و *Figma AI* داخل *ChatGPT*  
+        لتشوف كيف تقدر تسوي تصميم احترافي خلال دقائق فقط! 🎨✨
         """)
 
-        st.video("videos/DESIGN.mp4")
+        st.video(vid("DESIGN.mp4"))
 
         st.markdown("""
         🔗 *المصادر الموثوقة:*  
-        - [Canva Magic Design](https://www.canva.com/magic-design/)
-        - [Figma AI Overview](https://help.figma.com/hc/en-us/articles/18334125446807-About-Figma-AI)
+        - [Canva Magic Design](https://chatgpt.com/apps/canva/)  
+        - [Figma AI Overview](https://youtu.be/4bItdPD4c90?si=fiEJ4muSyVsBEOJh)  
+        - [Canva Official Video](https://youtu.be/aqeZ2uTIaDQ?si=Rw4pK6zSxNxEC1hr)
         """)
 
-        st.warning("""
-        ⚠ التقنية تساعدك على الإبداع، لكنها ما تغني عن بصمتك الخاصة.  
-        *التصميم الواعي يعكس هويتك أنت.*
-        """)
+        st.markdown("""
+        <div style="background-color:#fff3cd;padding:25px;border-radius:15px;
+        border:2px solid #ffc107;font-size:18px;line-height:1.8;text-align:justify;">
+        ⚠️ <b>التقنية تساعدك على الإبداع، لكنها لا تصنع بصمتك.</b><br>
+        التصميم الواعي هو انعكاس لهويتك وقيمك. ✨
+        </div>
+        """, unsafe_allow_html=True)
 
-    # ✈ الحجز الذكي
-    elif task == "✈ الحجز الذكي":
-        st.subheader("✈ الحجز الذكي")
-
+    # =====================================
+    # ✈️ الحجز الذكي
+    # =====================================
+    elif task == "✈️ الحجز الذكي":
+        st.subheader("✈️ الحجز الذكي")
         st.markdown("""
         🎬 *السيناريو قبل التقنية:*  
         جاك إشعار لاجتماع طارئ في الرياض 😱  
         تبدأ تدور بين مواقع الطيران والفنادق... وتضيع وقتك بين الأسعار والخيارات.
         """)
+
         before_time = st.slider("⏱ كم أخذ منك وقت البحث؟", 1, 5, 4)
         before_diff = st.slider("😩 ما مدى الصعوبة؟", 1, 5, 4)
         st.session_state.scores["before"] = [before_time, before_diff]
 
         st.markdown("---")
         st.markdown("### 🤖 الطريقة الذكية:")
+
         st.markdown("""
-        مع *ChatGPT Booking* و *AI Agent Mode*،  
-        تقدر تحجز رحلتك وفندقك بخطوة وحدة ✈🏨  
+        مع *ChatGPT Booking* و *AI Agent Mode*  
+        تقدر تحجز رحلتك وفندقك بخطوة وحدة ✈️🏨  
         فقط اكتب وجهتك والتواريخ وشاهد النتائج فوراً.
         """)
 
-        st.video("videos/TRAVEL.mp4")
+        st.video(vid("TRAVEL.mp4"))
 
         st.markdown("""
         🔗 *المصادر الموثوقة:*  
-        - [OpenAI Travel Use Cases](https://openai.com)
-        - [AI Agent Booking Demo](https://www.youtube.com)
+        - [OpenAI Travel Use Cases](https://chatgpt.com/features/agent/)  
+        - [AI Agent Demo Playlist](https://www.youtube.com/playlist?list=PLOXw6I10VTv_9xLWUFMRDL6DWwVRg0Ts7)
         """)
 
-        st.warning("""
-        🚨 التقنية تختصر وقتك، لكنها ما تعفيك من الحذر.  
-        *لا تدخل بياناتك الحساسة أثناء استخدام أي أداة.*
-        """)
+        st.markdown("""
+        <div style="background-color:#fde2e2;padding:25px;border-radius:15px;
+        border:2px solid #dc3545;font-size:18px;line-height:1.8;text-align:justify;">
+        🚨 <b>التقنية تختصر وقتك، لكنها لا تعفيك من الوعي.</b><br>
+        لا تدخل بياناتك الشخصية أو البنكية أثناء استخدام أدوات الذكاء الاصطناعي. 🔒
+        </div>
+        """, unsafe_allow_html=True)
 
+    # =====================================
     # 💻 البرمجة والتعليم
+    # =====================================
     else:
         st.subheader("💻 البرمجة والتعليم")
-
         st.markdown("""
         🎬 *السيناريو قبل التقنية:*  
         تحاول تكتب كود بسيط وتواجه أخطاء كثيرة،  
         وتبدأ رحلة البحث في المنتديات واليوتيوب 😩  
         """)
+
         st.code("""for i in range(1, 21):\n    if i % 2 == 0:\n        print(i)""", language="python")
         before_time = st.slider("⏱ كم أخذ منك وقت كتابة الكود؟", 1, 5, 4)
         before_diff = st.slider("😓 مدى الصعوبة؟", 1, 5, 4)
@@ -228,174 +229,41 @@ if "page" in st.session_state and st.session_state.page == "main":
 
         st.markdown("---")
         st.markdown("### 🤖 الطريقة الذكية:")
+
         st.markdown("""
         مع *ChatGPT + Codex*  
         تتعلّم المفهوم خطوة بخطوة وتكتب الكود مع الذكاء الاصطناعي،  
         بل وترفعه مباشرة على *GitHub* وتشوف تطوّرك 👩🏻‍💻✨
         """)
 
-        st.video("videos/CODE.mp4")
+        st.video(vid("CODE.mp4"))
 
         st.markdown("""
         🔗 *المصادر الموثوقة:*  
-        - [OpenAI – شرح Codex](https://youtube.com/playlist?list=PLOXw6I10VTv-IwPfAPgK9F2YQOcgr1N8s)
-        - [OpenAI – متابعة السلسلة](https://youtube.com/playlist?list=PLOXw6I10VTv-ZkTjAFQx8P3i4QurANKyG)
+        - [OpenAI Codex](https://openai.com/codex/)  
+        - [Codex Playlist 1](https://youtube.com/playlist?list=PLOXw6I10VTv-ZkTjAFQx8P3i4QurANKyG)  
+        - [Codex Playlist 2](https://youtube.com/playlist?list=PLOXw6I10VTv-IwPfAPgK9F2YQOcgr1N8s)
         """)
-
-        st.warning("""
-        ⚠ الكود الجاهز يعلّمك،  
-        لكن الكود اللي تكتبه بيدك يرسّخ فهمك.  
-        *ابدأ بالانطلاقة... وكمل المشوار بنفسك.*
-        """)
-
-    # =========================
 
         st.markdown("""
-        من هنا تبدأ التجربة 👇  
-        كل مهمة توضّح الفرق بين الطريقة *التقليدية* والطريقة *الذكية* باستخدام الذكاء الاصطناعي.
-        """)
+        <div style="background-color:#dbeafe;padding:25px;border-radius:15px;
+        border:2px solid #0d6efd;font-size:18px;line-height:1.8;text-align:justify;">
+        💡 <b>التقنية تعلّمك، لكنها لا تفكّر عنك.</b><br>
+        الكود الواعي هو اللي تكتبه بفهمك، مو اللي تنسخه بلا وعي. 👨🏻‍💻
+        </div>
+        """, unsafe_allow_html=True)
 
-        task = st.selectbox("اختر المجال الذي ترغب بتجربته:",
-                            ["🎨 التصميم", "✈️ الحجز الذكي", "💻 البرمجة والتعليم"])
-
-        # =====================================
-        # 🎨 التصميم
-        # =====================================
-        if task == "🎨 التصميم":
-            st.subheader("🎨 التصميم الذكي")
-
-            st.markdown("""
-            🎬 *السيناريو قبل التقنية:*  
-            كم مرة كانت عندك فكرة تصميم، لكن ضيّعت وقتك في تنسيق الألوان أو ترتيب العناصر؟ 😩  
-            """)
-
-            before_time = st.slider("⏱ كم أخذ منك وقت التصميم؟", 1, 5, 3)
-            before_diff = st.slider("😓 ما مدى الصعوبة؟", 1, 5, 3)
-            st.session_state.scores["before"] = [before_time, before_diff]
-
-            st.markdown("---")
-            st.markdown("### 🤖 الطريقة الذكية:")
-
-            st.markdown("""
-            استخدم أدوات مثل  
-            *Canva Magic Design*  
-            و  
-            *Figma AI*  
-            داخل  
-            **ChatGPT**  
-            شوف كيف تقدر تسوي تصميم احترافي خلال دقائق فقط! 🎨✨
-            """)
-
-            st.videos("videos/DESIGN.mp4")
-
-            st.markdown("""
-            🔗 *المصادر الموثوقة:*  
-            - [Canva Magic Design](https://chatgpt.com/apps/canva/)  
-            - [Figma AI Overview](https://youtu.be/4bItdPD4c90?si=fiEJ4muSyVsBEOJh)  
-            - [Canva Official Video](https://youtu.be/aqeZ2uTIaDQ?si=Rw4pK6zSxNxEC1hr)
-            """)
-
-            st.markdown("""
-            <div style="background-color:#fff3cd;padding:25px;border-radius:15px;
-            border:2px solid #ffc107;font-size:18px;line-height:1.8;text-align:justify;">
-            ⚠️ <b>التقنية تساعدك على الإبداع، لكنها لا تصنع بصمتك.</b><br>
-            التصميم الواعي هو انعكاس لهويتك وقيمك. ✨
-            </div>
-            """, unsafe_allow_html=True)
-
-        # =====================================
-        # ✈️ الحجز الذكي
-        # =====================================
-        elif task == "✈️ الحجز الذكي":
-            st.subheader("✈️ الحجز الذكي")
-
-            st.markdown("""
-            🎬 *السيناريو قبل التقنية:*  
-            جاك إشعار لاجتماع طارئ في الرياض 😱  
-            تبدأ تدور بين مواقع الطيران والفنادق... وتضيع وقتك بين الأسعار والخيارات.
-            """)
-
-            before_time = st.slider("⏱ كم أخذ منك وقت البحث؟", 1, 5, 4)
-            before_diff = st.slider("😩 ما مدى الصعوبة؟", 1, 5, 4)
-            st.session_state.scores["before"] = [before_time, before_diff]
-
-            st.markdown("---")
-            st.markdown("### 🤖 الطريقة الذكية:")
-
-            st.markdown("""
-            مع  
-            *ChatGPT Booking*  
-            و  
-            *AI Agent Mode*  
-            تقدر تحجز رحلتك وفندقك بخطوة وحدة ✈️🏨  
-            فقط اكتب وجهتك والتواريخ وشاهد النتائج فوراً.
-            """)
-
-            st.videos("videos/TRAVEL.mp4")
-
-            st.markdown("""
-            🔗 *المصادر الموثوقة:*  
-            - [OpenAI Travel Use Cases](https://chatgpt.com/features/agent/)  
-            - [AI Agent Demo Playlist](https://www.youtube.com/playlist?list=PLOXw6I10VTv_9xLWUFMRDL6DWwVRg0Ts7)
-            """)
-
-            st.markdown("""
-            <div style="background-color:#fde2e2;padding:25px;border-radius:15px;
-            border:2px solid #dc3545;font-size:18px;line-height:1.8;text-align:justify;">
-            🚨 <b>التقنية تختصر وقتك، لكنها لا تعفيك من الوعي.</b><br>
-            لا تدخل بياناتك الشخصية أو البنكية أثناء استخدام أدوات الذكاء الاصطناعي. 🔒
-            </div>
-            """, unsafe_allow_html=True)
-
-        # =====================================
-        # 💻 البرمجة والتعليم
-        # =====================================
-        else:
-            st.subheader("💻 البرمجة والتعليم")
-
-            st.markdown("""
-            🎬 *السيناريو قبل التقنية:*  
-            تحاول تكتب كود بسيط وتواجه أخطاء كثيرة،  
-            وتبدأ رحلة البحث في المنتديات واليوتيوب 😩  
-            """)
-
-            st.code("""for i in range(1, 21):\n    if i % 2 == 0:\n        print(i)""", language="python")
-            before_time = st.slider("⏱ كم أخذ منك وقت كتابة الكود؟", 1, 5, 4)
-            before_diff = st.slider("😓 مدى الصعوبة؟", 1, 5, 4)
-            st.session_state.scores["before"] = [before_time, before_diff]
-
-            st.markdown("---")
-            st.markdown("### 🤖 الطريقة الذكية:")
-
-            st.markdown("""
-            مع  
-            *ChatGPT*  
-            +  
-            *Codex*  
-            تتعلّم المفهوم خطوة بخطوة وتكتب الكود مع الذكاء الاصطناعي،  
-            بل وترفعه مباشرة على  
-            *GitHub*  
-            وتشوف تطوّرك 👩🏻‍💻✨
-            """)
-
-            st.videos("videos/CODE.mp4")
-
-            st.markdown("""
-            🔗 *المصادر الموثوقة:*  
-            - [OpenAI Codex](https://openai.com/codex/)  
-            - [Codex Playlist 1](https://youtube.com/playlist?list=PLOXw6I10VTv-ZkTjAFQx8P3i4QurANKyG&si=BmYhtyGS1oTDqioK)  
-            - [Codex Playlist 2](https://youtube.com/playlist?list=PLOXw6I10VTv-IwPfAPgK9F2YQOcgr1N8s&si=T3mE1GCK4ond2xeQ)
-            """)
-
-            st.markdown("""
-            <div style="background-color:#dbeafe;padding:25px;border-radius:15px;
-            border:2px solid #0d6efd;font-size:18px;line-height:1.8;text-align:justify;">
-            💡 <b>التقنية تعلّمك، لكنها لا تفكّر عنك.</b><br>
-            الكود الواعي هو اللي تكتبه بفهمك، مو اللي تنسخه بلا وعي. 👨🏻‍💻
-            </div>
-            """, unsafe_allow_html=True)
-
+    # =========================
+    # رابط الاستبيان
+    # =========================
     st.markdown("---")
+    st.markdown("""
+    📝 **ساعدنا في تطوير التجربة!**  
+    نرغب نعرف رأيك واقتراحاتك لتحسين المبادرة عبر هذا الاستبيان:  
+    👉 [اضغط هنا لتعبئة الاستبيان](https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=S6tr4uaXVEexY2D4I36FMeRI3aQNAKZEovDgiCxBCUJUOTBEVzBUUVFLUVNNWFNJREo1NjdUTk1UMy4u)
+    """)
+
+
     # =========================
     # نهاية التجربة 💬
     # =========================
