@@ -7,10 +7,6 @@ BASE = Path(__file__).parent
 def img(name: str) -> str:
     return str(BASE / "images" / name)
 
-def vid(name: str) -> str:
-    return str(BASE / "videos" / name)
-
-
 import streamlit as st
 import os
 
