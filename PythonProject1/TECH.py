@@ -151,7 +151,7 @@ if "page" in st.session_state and st.session_state.page == "main":
         st.markdown("""
         استخدم أدوات مثل  
         *Canva Magic Design* و *Figma AI* داخل *ChatGPT*  
-        لتشوف كيف تقدر تسوي تصميم احترافي خلال دقائق فقط! 🎨✨
+    و شوف كيف تقدر تسوي تصميم احترافي خلال دقائق فقط! 🎨✨
         """)
 
         st.video(vid("DESIGN.mp4"))
@@ -223,7 +223,7 @@ if "page" in st.session_state and st.session_state.page == "main":
         st.markdown("""
         🎬 *السيناريو قبل التقنية:*  
         تحاول تكتب كود بسيط وتواجه أخطاء كثيرة،  
-        وتبدأ رحلة البحث في المنتديات واليوتيوب 😩  
+        وتبدأ رحلة البحث في المصادر واليوتيوب 😩  
         """)
 
         st.code("""for i in range(1, 21):\n    if i % 2 == 0:\n        print(i)""", language="python")
@@ -242,7 +242,7 @@ if "page" in st.session_state and st.session_state.page == "main":
 
         st.video(vid("CODE.mp4"))
 
-        st.subheader("🎓 طالب المدرسة – المهارات الرقمية")
+        st.subheader(" طالب مدرسة؟")
 
         st.markdown("""
                 🎬 *السيناريو قبل التقنية:*  
@@ -270,7 +270,7 @@ if "page" in st.session_state and st.session_state.page == "main":
         border:2px solid #0d6efd;font-size:18px;line-height:1.8;text-align:justify;
         color:#000000;font-weight:600;">
         💡 <b>التقنية تعلّمك، لكنها لا تفكّر عنك.</b><br>
-        الكود الواعي هو اللي تكتبه بفهمك، مو اللي تنسخه بلا وعي. 👨🏻‍💻
+        االبرمجه الصحيحه هي تكتب الكود بفهمك، ليس ان تنسخه بلا فهم. 👨🏻‍💻
         </div>
         """, unsafe_allow_html=True)
 
